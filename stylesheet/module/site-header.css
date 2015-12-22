@@ -1,0 +1,57 @@
+.site-header--wrapper {
+  background-color: $site-bg-dark-color;
+  position: relative;
+  &:after { 
+    content: "";
+    background-color: $primary-color;
+    box-shadow: inset 15px 4px 15px 0px rgba(0,0,0,0.5);
+    position: absolute;
+    top: 0; 
+    right: 0;
+    left: 0;
+    z-index: 0;
+    height: 100%;
+  }
+  &:before {
+    content: "";
+    background-color:  $site-bg-dark-color;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    z-index: 1;
+    width: calc(50% - 640px);
+  }
+}
+
+.site-header {
+  position: relative;
+  &:before {
+    content:  "";
+    background-color: $site-bg-dark-color;
+    position: absolute;
+    width: calc(30% + 96px);
+    height: 100%;
+    left: 0;
+    z-index: 1;
+  }
+}
+
+.site-header__logo {
+  width: 240px;
+  height: 90px;
+  display: inline-block;
+  z-index: 2;
+  position: relative;
+  text-decoration: none;
+  margin: ms(-1)rem 0;
+}
+
+.site-header__steps {
+  height: 100%;
+  width: 140px;
+  position: absolute;
+  top: 0;
+  left: calc(30% + 95px);
+  z-index: 1;
+}

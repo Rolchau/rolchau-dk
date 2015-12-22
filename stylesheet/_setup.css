@@ -1,0 +1,38 @@
+:root {
+  --ms-bases: 1;
+  --ms-ratios: 1.618;
+}
+
+/* 
+ * FONT, PAGE SIZEZ ETC.
+ */
+$font-size-narrow: 16px;
+$font-size-wide: 18px; 
+
+$width-text-max: 38rem;
+$width-page-max: 1280px;
+
+/*
+ * SPACING
+ */
+$space-extra-small: ms(-7);
+$space-small: ms(-2);
+$space-default: ms(1);
+$space-large: ms(4);
+
+
+/*
+ * SITE BG COLORS
+ */
+$site-bg-color: #D3E3EA;
+$site-bg-dark-color: #323B3F;
+$body-bg-color: #F2F6FB;
+$primary-color: #295568;
+$button-bg-color: #28434E;
+
+/*
+ * FONT COLORS
+ */
+$heading-color: #101010;
+$heading-color-light: #717171;
+$body-font-color: #585858;

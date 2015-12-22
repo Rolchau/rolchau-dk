@@ -1,0 +1,10 @@
+.page-width {
+  max-width: $width-page-max;
+  margin: 0 auto;
+  padding-left: ms(0)rem;
+  padding-right: ms(0)rem;
+}
+
+.page-panel {
+  clear: both;
+}

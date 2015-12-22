@@ -1,0 +1,62 @@
+html {
+  font-family: 'Raleway', sans-serif; 
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; 
+  font-size: $font-size-narrow; 
+  @media screen and (min-width: 38rem) {
+    font-size: $font-size-wide; 
+  }
+}
+  
+body {
+  background-color: $body-bg-color; 
+  margin: 0;
+  color: $body-font-color;
+  font-weight: 400; 
+} 
+
+p,
+ul, 
+ol {
+  max-width: $width-text-max;
+  width: 100%;
+  line-height: ms(1);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.page-intro {
+  font-size: 1.2rem;
+  line-height: ms(1);
+}
+
+@for @i from 1 to 3 {
+    h@i,
+    .heading-@i {
+      color: $heading-color;
+      margin: 0;
+      margin-bottom: ms(-2);
+      max-width: $width-text-max;
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+
+h1, 
+.heading-1 {
+  font-size: ms(2); 
+  font-weight: 200;
+}
+
+h2, 
+.heading-2 {
+  font-size: ms(1);
+  font-weight: 300;
+}
+
+h3,
+.heading-3 {
+  font-size: ms(0); 
+  font-weight: 400;
+}

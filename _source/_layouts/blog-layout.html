@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  {% include head.html %}
+  <body>
+    {% include header.html %}
+    <div class="page-panel">
+      <div class="page-row">
+        <div class="page-column">
+          {{ content }}  
+        </div>        
+      </div>
+    </div>
+    {% include footer.html %}
+ 
+ {% for tag in site.tags %}
+    {{ tag[0] }}
+  {% endfor %}
+
+{% assign sorted_tags = (site.tags | sort:0) %}
+{% for tag in sorted_tags %}
+  {{ tag[0] }}
+{% endfor %}
+
+{% include paintings.html %}
+
+
+  </body>
+
+</html>

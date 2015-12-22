@@ -1,0 +1,7 @@
+- name: Mr. Garfi
+  image: garfi.jpg
+  description: "Det er bare mig"
+
+- name: A Cyborg
+  image:  cyborg_sketch.png
+  description: "Det er en cyborg"
