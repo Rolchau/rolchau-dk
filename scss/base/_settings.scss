@@ -1,2 +1,37 @@
 @import "functions";
 @import "media";
+
+/*------------------------------------*\
+    TYPOGRAPHY
+\*------------------------------------*/
+
+$body-font-size: 16px;
+
+$max-text-width: 38rem; // 608px
+$width-page-max: 1280px;
+
+$font-size: (
+  s: 0.5rem,
+  n: 1rem,
+  l: 2rem,
+  xl: 3rem
+);
+
+$font-weight: (
+  light: 200,
+  regular: 400,
+  bold: 700
+);
+
+/*------------------------------------*\
+    BLOCK SIZES, Z-INDEX, RADIUS ETC.
+\*------------------------------------*/
+
+$size: (
+  s: 0.625em,  // 10px
+  m: 1rem,     // 16px 
+  l: 1.563em,  // 25px
+  xl: 3.125em, // 50px
+  xxl: 6.250rem// 100px
+);
+
