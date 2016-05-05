@@ -5,27 +5,30 @@ module.exports = function(grunt) {
 
   grunt.initConfig({
     shell: {
-      buildJekyll: {
+      watchJekyll: {
         command: 'jekyll build --watch'
-      },
-      proxyBrowserSync: {
-        command: 'browser-sync start --server "build" --files="build/css/*.css, build/**/*.html, build/js/*.js"'
       }
     },
+
+    sass: {
+      options: {
+        sourcemap: true
+      },
+      dist: {
+        files: {
+          'build/css/rolchau.css':'scss/rolchau.scss'
+        }        
+      }
+    },
+
     postcss: {
       options: {
         map: {
           inline: false,
-          annotation: 'css/maps/'
+          annotation: 'build/css/maps/'
         },
         processors: [
-          require('postcss-import'),
-          require('postcss-simple-vars'),
-          require('postcss-nested'),
-          require('postcss-for-var'),
-          require('postcss-modular-scale'),
           require('autoprefixer')({browsers: ['last 2 versions']}),
-          require('cssnano')()
         ] 
       },
       dist: {
@@ -34,24 +37,19 @@ module.exports = function(grunt) {
         }
       }
     },
-    uglify: {
-      loadcss: {
-        files: {
-          'build/js/loadcss.js': 'js/loadcss.js'
-        }
-      }
-    },
+
     watch: {
       css: {
-        files: 'stylesheet/**/*.css',
-        tasks: ['postcss'],
+        files: 'scss/*.scss',
+        tasks: ['sass'],
         options: {
           nospawn: true
         },
       }
     },
+
     concurrent: {
-      watches: ['watch', 'shell:buildJekyll', 'shell:proxyBrowserSync'],
+      watches: ['watch', 'shell:buildJekyll'],
       options: {
         logConcurrentOutput: true
       }
@@ -59,6 +57,5 @@ module.exports = function(grunt) {
   });
 
   // Default task.
-  grunt.registerTask('default', ['']);
-
+  grunt.registerTask('default', ['sass', 'postcss']);
 };
