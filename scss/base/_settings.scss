@@ -2,13 +2,18 @@
 @import "media";
 
 /*------------------------------------*\
+    COLORS
+\*------------------------------------*/
+$header-bg: #61ABDC;
+
+/*------------------------------------*\
     TYPOGRAPHY
 \*------------------------------------*/
-
 $body-font-size: 16px;
+$body-font-family: 'Raleway', sans-serif;
 
 $max-text-width: 38rem; // 608px
-$width-page-max: 1280px;
+$max-page-width: 1024px;
 
 $font-size: (
   s: 0.5rem,
@@ -27,11 +32,10 @@ $font-weight: (
     BLOCK SIZES, Z-INDEX, RADIUS ETC.
 \*------------------------------------*/
 
-$size: (
-  s: 0.625em,  // 10px
-  m: 1rem,     // 16px 
-  l: 1.563em,  // 25px
-  xl: 3.125em, // 50px
-  xxl: 6.250rem// 100px
+$sizes: (
+  s: 0.625rem,   // 10px
+  m: 1rem,       // 16px
+  l: 2rem,       // 32px
+  xl: 3.125rem,  // 50px
+  xxl: 6.250rem  // 100px
 );
-

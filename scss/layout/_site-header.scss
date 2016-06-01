@@ -1,0 +1,8 @@
+.site-header {
+  max-width: $max-page-width;
+  margin: 0 auto;
+  padding: size("l") size("m");
+  &__wrapper {
+    background-color: $header-bg;
+  }
+}
