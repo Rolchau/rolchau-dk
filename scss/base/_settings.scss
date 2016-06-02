@@ -4,7 +4,17 @@
 /*------------------------------------*\
     COLORS
 \*------------------------------------*/
-$header-bg: #61ABDC;
+
+$color-4: #4685A8; //Light-blue
+
+
+$site-header-logo-bg: #5390B8;
+
+$site-header-bg: #61ABDC;
+$site-header-bar-bg: #3C7193;
+$site-header-link-text: #fff;
+$site-header-nav-item-bg: $color-4;
+
 
 /*------------------------------------*\
     TYPOGRAPHY
@@ -15,11 +25,12 @@ $body-font-family: 'Raleway', sans-serif;
 $max-text-width: 38rem; // 608px
 $max-page-width: 1024px;
 
-$font-size: (
-  s: 0.5rem,
-  n: 1rem,
-  l: 2rem,
-  xl: 3rem
+$font-sizes: (
+  s: 0.750rem,      //12px
+  n: 1rem,          //16px
+  m: 1.125rem,      //18px
+  l: 2rem,          //32px
+  xl: 3rem          //48px
 );
 
 $font-weight: (
@@ -33,6 +44,7 @@ $font-weight: (
 \*------------------------------------*/
 
 $sizes: (
+  xs: 0.5rem,    // 8px
   s: 0.625rem,   // 10px
   m: 1rem,       // 16px
   l: 2rem,       // 32px

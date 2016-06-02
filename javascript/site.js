@@ -1,15 +1,42 @@
-var button = document.querySelectorAll('.site-nav__item a');
+var ROLCHAU = {};
 
-for (var i = 0; i < button.length; i++) { 
-  button[i].addEventListener('click', function(event) {
-    var target = event.target;
-    target.classList.add('is-animating');    
-    var boxesTest = target.previousElementSibling.querySelectorAll('rect[id^=box-]');
-    TweenMax.staggerTo(boxesTest, 0.4, {ease: Power1.easeInOut, y: -100, opacity: 0}, 0.1, animationDone, [boxesTest], event.target);
-  });
-}
+(function() {
+  var sliderItem,
+      siteNavBar;
 
-function animationDone(boxes) {
-  TweenMax.staggerTo(boxes, 0.4, {y: 0, opacity: 1, rotation: 0}, 0.1);
-  this.classList.remove('is-animating');
-}
+  function onClick(e) {
+    var target = e.target;
+
+    if (target === e.currentTarget) {
+      return;
+    } else {
+      e.currentTarget.querySelector('.is-active').classList.remove('is-active');
+    }
+
+    if (target.classList.contains('site-header__nav-item')) {
+      target = target.parentNode;
+    }
+
+    console.log(target);
+  }
+
+  function init() {
+    sliderItem = document.createElement('div');
+    sliderItem.classList.add('slider-item');
+    siteNavBar = document.querySelector('.site-header__nav');
+    siteNavBar.addEventListener('click', onClick);
+    siteNavBar.appendChild(sliderItem);
+  }
+
+  ROLCHAU.menuSlider = {
+    init: init
+  };
+}());
+
+ROLCHAU.init = function() {
+  this.menuSlider.init();
+};
+
+window.addEventListener('DOMContentLoaded', function() {
+  ROLCHAU.init();
+});

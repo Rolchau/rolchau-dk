@@ -1,8 +1,54 @@
 .site-header {
   max-width: $max-page-width;
+  height: 270px;
+  font-size: font-size("m");
   margin: 0 auto;
   padding: size("l") size("m");
+
   &__wrapper {
-    background-color: $header-bg;
+    background-color: $site-header-bg;
+  }
+
+  &__bar {
+    background-color: $site-header-bar-bg;
+    box-shadow: 1px 4px 7px rgba(0,0,0,0.25);
+    padding-left: size("s");
+    margin-top: size("s");
+  }
+
+  &__nav-link {
+    color: $site-header-link-text;
+    text-decoration: none;
+    line-height: 3.438rem - size("xs") * 2;
+    display: inline-block;
+    margin: 0 size("xs");
+  }
+
+  &__nav-item {
+    margin-top: size("xs");
+    margin-bottom: size("xs");
+    padding: 0 size("s");
+    display: inline-block;
+    border-radius: 3px;
+  }
+
+  &__nav-link:hover &__nav-item,
+  &__nav-link.is-active &__nav-item {
+    background-color: $site-header-nav-item-bg;
+  }
+
+  &__logo {
+    color: $site-header-logo-bg;
+    font-size: 1.25rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  &__search {
+    display: none;
+  }
+
+  &__search-btn {
+    display: none;
   }
 }
