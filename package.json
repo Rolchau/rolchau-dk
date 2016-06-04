@@ -17,6 +17,6 @@
   "scripts": {
     "build": "grunt sass & jekyll build",
     "watch": "grunt watch & jekyll build --watch & npm run serve",
-    "serve": "browser-sync start --server --files='build/css/*.css, build/**/*.html, build/js/*.js'"
+    "serve": "browser-sync start --server --files='build/css/*.css, build/**/*.html, javascript/*.js'"
   }
 }

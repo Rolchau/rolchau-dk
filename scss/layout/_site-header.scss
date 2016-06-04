@@ -32,6 +32,22 @@
     border-radius: 3px;
   }
 
+  @at-root .slider-item {
+    background-color: white;
+    border-radius: 3px;
+    width: 200px;
+    height: 3.438rem - size("xs") * 2;
+    margin-top: size("xs");
+    margin-left: - size("xs") * 2;
+    pointer-events: none;
+    position: absolute;
+    left: size("s") + size("xs");
+    top: 0;
+    transition: 0.2s transform ease-in-out;
+    transform-origin: 0 0;
+    opacity: 0.4;
+  }
+
   &__nav-link:hover &__nav-item,
   &__nav-link.is-active &__nav-item {
     background-color: $site-header-nav-item-bg;
