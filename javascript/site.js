@@ -24,7 +24,10 @@ var ROLCHAU = {};
 
   function getSlideToStyle(toElm) {
     let bounds = toElm.getBoundingClientRect();
-    return 'translateX(' + (bounds.left) + 'px) translateY(' + bounds.top + 'px) scale3d(' + bounds.width / 200 + ', 1, 1)';
+    let translateX = bounds.left;
+    let translateY = bounds.top;
+    let scaleX = bounds.width / 200; //SliderItem is 200px wide
+    return 'translateX(' + translateX + 'px) translateY(' + translateY + 'px) scale3d(' + scaleX + ', 1, 1)';
   }
 
   function init() {
@@ -39,11 +42,8 @@ var ROLCHAU = {};
     siteNavBar.appendChild(sliderItem);
   }
 
-
-
   ROLCHAU.menuSlider = {
-    init: init,
-    slideTo: getSlideToStyle
+    init: init
   };
 }());
 

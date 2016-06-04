@@ -43,9 +43,13 @@
     position: absolute;
     left: size("s") + size("xs");
     top: 0;
-    transition: 0.2s transform ease-in-out;
+    transition: 0.2s transform ease-in-out, 0.2s opacity ease-in-out;
     transform-origin: 0 0;
-    opacity: 0.4;
+    opacity: 0;
+  }
+
+  @at-root .slider-item.is-animating {
+    opacity: 0.4s;
   }
 
   &__nav-link:hover &__nav-item,

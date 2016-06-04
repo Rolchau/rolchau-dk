@@ -1,22 +1,30 @@
 {
-  "engines": {
-    "node": ">= 4.10.0"
-  },
-  "devDependencies": {
-    "autoprefixer": "^6.0.3",
-    "cssnano": "^3.4.0",
-    "grunt-concurrent": "^2.1.0",
-    "grunt-contrib-uglify": "^0.10.0",
-    "grunt-contrib-watch": "^0.6.1",
-    "grunt-postcss": "^0.6.0",
-    "grunt-sass": "^1.1.0",
-    "grunt-shell": "^1.1.2",
-    "load-grunt-tasks": "^3.4.0",
-    "postcss": "^5.0.9"
-  },
   "scripts": {
     "build": "grunt sass & jekyll build",
     "watch": "grunt watch & jekyll build --watch & npm run serve",
     "serve": "browser-sync start --server --files='build/css/*.css, build/**/*.html, javascript/*.js'"
+  },
+  "name": "rolchau-dk",
+  "version": "1.0.0",
+  "main": "Gruntfile.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rolchau/rolchau-dk.git"
+  },
+  "author": "Tommy Rolchau Mathiesen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rolchau/rolchau-dk/issues"
+  },
+  "homepage": "https://github.com/Rolchau/rolchau-dk#readme",
+  "description": "",
+  "devDependencies": {
+    "autoprefixer": "^6.3.6",
+    "grunt": "^1.0.1",
+    "grunt-concurrent": "^2.3.0",
+    "grunt-contrib-watch": "^1.0.0",
+    "grunt-sass": "^1.2.0",
+    "load-grunt-tasks": "^3.5.0",
+    "postcss": "^5.0.21"
   }
 }
