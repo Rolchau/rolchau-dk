@@ -14,6 +14,8 @@
     box-shadow: 1px 4px 7px rgba(0,0,0,0.25);
     padding-left: size("s");
     margin-top: size("s");
+    display: flex;
+    height: 3.438rem;
   }
 
   &__nav-link {
@@ -22,6 +24,8 @@
     line-height: 3.438rem - size("xs") * 2;
     display: inline-block;
     margin: 0 size("xs");
+    position: relative;
+    z-index: 2;
   }
 
   &__nav-item {
@@ -29,11 +33,11 @@
     margin-bottom: size("xs");
     padding: 0 size("s");
     display: inline-block;
-    border-radius: 3px;
+    position: relative;
   }
 
   @at-root .slider-item {
-    background-color: white;
+    background-color: $site-header-nav-item-bg;
     border-radius: 3px;
     width: 200px;
     height: 3.438rem - size("xs") * 2;
@@ -43,18 +47,33 @@
     position: absolute;
     left: size("s") + size("xs");
     top: 0;
-    transition: 0.2s transform ease-in-out, 0.2s opacity ease-in-out;
+    transition: 0.33s transform cubic-bezier(0.01, 0.23, 0.38, 1.33);
     transform-origin: 0 0;
+    opacity: 1;
+    z-index: 1;
+  }
+
+  @at-root .slider-item.is-animated {
+    opacity: 0;
+    transition: 0.33s opacity ease-in-out;
+  }
+
+  &__nav-link:before {
+    content: "";
+    position: absolute;
+    top: size("xs");
+    bottom: size("xs");
+    left: 0;
+    width: 100%;
+    padding: 0 size("s");
+    border-radius: 3px;
+    background-color: $site-header-nav-item-bg;
+    transition: 0.2s opacity ease-in-out;
     opacity: 0;
   }
 
-  @at-root .slider-item.is-animating {
-    opacity: 0.4s;
-  }
-
-  &__nav-link:hover &__nav-item,
-  &__nav-link.is-active &__nav-item {
-    background-color: $site-header-nav-item-bg;
+  &__nav-link.is-active:before {
+    opacity: 1;
   }
 
   &__logo {
@@ -69,6 +88,34 @@
   }
 
   &__search-btn {
-    display: none;
+    border: none;
+    background: transparent;
+    appearance: none;
+    margin-left: auto;
+    position: relative;
+    height: 100%;
+    width: 64px;
+    svg {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      width: 1.750rem;
+      fill: white;
+      transition: 0.2s opacity ease-in-out;
+    }
+    .close-icon {
+      opacity: 0;
+    }
+    &--open {
+      .search-icon {
+        opacity: 0;
+      }
+      .close-icon {
+        opacity: 1;
+      }
+    }
   }
 }

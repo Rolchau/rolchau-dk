@@ -3,8 +3,24 @@ var ROLCHAU = {};
 (function() {
   var sliderItem,
       siteNavBar,
-      aItem;
+      aItem,
+      searchBtn,
+      searchInput;
 
+  function onTransitionEnd() {
+    aItem.classList.add('is-active');
+    sliderItem.classList.add('is-animated');
+    sliderItem.removeEventListener('transitionend', onTransitionEnd);
+  }
+
+  function getSlideToStyle(toElm) {
+    var bounds = toElm.getBoundingClientRect();
+    var translateX = bounds.left;
+    var translateY = bounds.top;
+    var scaleX = bounds.width / 200; //SliderItem is 200px wide
+    return 'translateX(' + translateX + 'px) translateY(' + translateY + 'px) scale3d(' + scaleX + ', 1, 1)';
+  }
+ 
   function onClick(e) {
     var target = e.target;
 
@@ -17,17 +33,16 @@ var ROLCHAU = {};
     if (target.classList.contains('site-header__nav-item')) {
       target = target.parentNode;
     }
+    aItem = target;
 
-    sliderItem.style.transform = getSlideToStyle(target);
-
+    sliderItem.style.transform = getSlideToStyle(aItem);
+    sliderItem.classList.remove('is-animated');
+    sliderItem.addEventListener('transitionend', onTransitionEnd);
   }
 
-  function getSlideToStyle(toElm) {
-    let bounds = toElm.getBoundingClientRect();
-    let translateX = bounds.left;
-    let translateY = bounds.top;
-    let scaleX = bounds.width / 200; //SliderItem is 200px wide
-    return 'translateX(' + translateX + 'px) translateY(' + translateY + 'px) scale3d(' + scaleX + ', 1, 1)';
+  function toggleSearch() {
+      searchBtn.classList.toggle('site-header__search-btn--open');
+      searchInput.classList.toggle('site-header__search--open');
   }
 
   function init() {
@@ -40,6 +55,10 @@ var ROLCHAU = {};
     siteNavBar = document.querySelector('.site-header__nav');
     siteNavBar.addEventListener('click', onClick);
     siteNavBar.appendChild(sliderItem);
+
+    searchBtn = document.querySelector('.js-search-btn');
+    searchBtn.addEventListener('click', toggleSearch);
+    searchInput = document.querySelector('js-search-input');
   }
 
   ROLCHAU.menuSlider = {
