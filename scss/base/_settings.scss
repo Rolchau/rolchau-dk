@@ -44,6 +44,7 @@ $font-weight: (
 \*------------------------------------*/
 
 $sizes: (
+  xxs: 0.380rem, // ?px
   xs: 0.5rem,    // 8px
   s: 0.625rem,   // 10px
   m: 1rem,       // 16px
@@ -51,3 +52,10 @@ $sizes: (
   xl: 3.125rem,  // 50px
   xxl: 6.250rem  // 100px
 );
+
+$border-radius: 4px;
+
+/*------------------------------------*\
+    SITE-HEADER
+\*------------------------------------*/
+$site-header-search-btn-width: 2.750rem;

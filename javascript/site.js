@@ -3,6 +3,7 @@ var ROLCHAU = {};
 (function() {
   var sliderItem,
       siteNavBar,
+      siteHeaderBar,
       aItem,
       searchBtn,
       searchInput;
@@ -20,8 +21,8 @@ var ROLCHAU = {};
     var scaleX = bounds.width / 200; //SliderItem is 200px wide
     return 'translateX(' + translateX + 'px) translateY(' + translateY + 'px) scale3d(' + scaleX + ', 1, 1)';
   }
- 
-  function onClick(e) {
+
+  function onLinkClick(e) {
     var target = e.target;
 
     if (target === e.currentTarget) {
@@ -42,23 +43,26 @@ var ROLCHAU = {};
 
   function toggleSearch() {
       searchBtn.classList.toggle('site-header__search-btn--open');
-      searchInput.classList.toggle('site-header__search--open');
+      siteHeaderBar.classList.toggle('is-search-open');
+      searchInput.classList.toggle('is-search-open');
   }
 
   function init() {
     sliderItem = document.createElement('div');
-    sliderItem.classList.add('slider-item');
+    sliderItem.classList.add('slider-item','is-animated');
 
     aItem = document.querySelector('.is-active');
     sliderItem.style.transform = getSlideToStyle(aItem);
 
+    siteHeaderBar = document.querySelector('.site-header__bar');
+
     siteNavBar = document.querySelector('.site-header__nav');
-    siteNavBar.addEventListener('click', onClick);
+    siteNavBar.addEventListener('click', onLinkClick);
     siteNavBar.appendChild(sliderItem);
 
     searchBtn = document.querySelector('.js-search-btn');
     searchBtn.addEventListener('click', toggleSearch);
-    searchInput = document.querySelector('js-search-input');
+    searchInput = document.querySelector('.js-search-input');
   }
 
   ROLCHAU.menuSlider = {
